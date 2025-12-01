@@ -17,9 +17,10 @@
         "release": "release-it"
     },
     "peerDependencies": {
-        "@inertiajs/react": "^1.0.0",
-        "@inertiajs/vue3": "^1.0.0",
-        "react": "^18.0.0",
+        "@inertiajs/core": "^2.0.0",
+        "@inertiajs/react": "^2.0.0",
+        "@inertiajs/vue3": "^2.0.0",
+        "react": "^18.0.0 || ^19.0.0",
         "vue": "^3.0.0"
     },
     "devDependencies": {
