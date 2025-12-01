@@ -1,5 +1,5 @@
 {
-    "name": "lang-sync-inertia",
+    "name": "erag-lang-sync-inertia",
     "version": "1.0.0",
     "description": "Unified Vue and React language sync helpers for Laravel Inertia",
     "main": "dist/lang-sync-inertia.cjs.js",
