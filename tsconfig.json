@@ -1,13 +1,26 @@
 {
   "compilerOptions": {
+    /* Output */
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": false,
+    "outDir": "dist",
+
+    /* Module settings */
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "Node",
 
-    "declaration": true,
-    "declarationDir": "dist",
-    "emitDeclarationOnly": false,
-    "outDir": "dist"
+    /* Code quality */
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    /* Useful for IDE */
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
-  "include": ["src"]
+
+  "include": ["src/**/*"]
 }

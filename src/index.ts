@@ -1,3 +1,4 @@
-export * as VueLang from './vue'
-export * as ReactLang from './react'
+export { vueLang } from './vue'
+export { reactLang } from './react'
+
 export * from './types/lang'
