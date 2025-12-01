@@ -13,7 +13,8 @@
         "prepare": "npm run build",
         "lint": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
         "lint:check": "prettier --check \"src/**/*.{ts,tsx,js,json,md}\"",
-        "type-check": "tsc --noEmit"
+        "type-check": "tsc --noEmit",
+         "release": "release-it"
     },
     "peerDependencies": {
         "@inertiajs/react": "^1.0.0",
@@ -25,6 +26,7 @@
         "@rollup/plugin-commonjs": "^24.1.0",
         "@rollup/plugin-node-resolve": "^15.2.1",
         "prettier": "^3.7.3",
+        "release-it": "^19.0.6",
         "rollup": "^3.0.0",
         "rollup-plugin-typescript2": "^0.32.1",
         "typescript": "^5.0.0"
