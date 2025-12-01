@@ -1,0 +1,32 @@
+{
+    "name": "@erag/lang-sync-inertia",
+    "version": "1.0.0",
+    "description": "Unified Vue and React language sync helpers for Laravel Inertia",
+    "main": "dist/lang-sync-inertia.cjs.js",
+    "module": "dist/lang-sync-inertia.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "rollup -c rollup.config.cjs",
+        "prepare": "npm run build",
+        "lint": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
+        "lint:check": "prettier --check \"src/**/*.{ts,tsx,js,json,md}\"",
+        "type-check": "tsc --noEmit"
+    },
+    "peerDependencies": {
+        "@inertiajs/react": "^1.0.0",
+        "@inertiajs/vue3": "^1.0.0",
+        "react": "^18.0.0",
+        "vue": "^3.0.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^24.1.0",
+        "@rollup/plugin-node-resolve": "^15.2.1",
+        "prettier": "^3.7.3",
+        "rollup": "^3.0.0",
+        "rollup-plugin-typescript2": "^0.32.1",
+        "typescript": "^5.0.0"
+    }
+}
