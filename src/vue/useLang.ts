@@ -3,7 +3,7 @@ import { Replaces } from '../types/lang';
 import { PageProps } from '../types/page';
 
 export function useLang() {
-    const page = usePage<PageProps>()
+    const page = usePage<PageProps>();
 
     function trans(key: string, replaces: Replaces | string = {}): string {
         const raw = getValueFromKey(key);

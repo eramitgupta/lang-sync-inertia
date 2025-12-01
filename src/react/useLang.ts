@@ -1,8 +1,8 @@
 import { usePage } from '@inertiajs/react';
 import type { Replaces, LangValue, LangObject } from '../types/lang';
-import type { PageProps } from '../types/page'
+import type { PageProps } from '../types/page';
 export function useLang() {
-    const { lang } = usePage<PageProps>().props
+    const { lang } = usePage<PageProps>().props;
 
     function trans(key: string, replaces: Replaces | string = {}): string {
         const raw = getValueFromKey(key);
