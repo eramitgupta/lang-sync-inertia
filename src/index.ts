@@ -1,1 +1,1 @@
-export * from './types/lang';
+export * from './types/lang'
