@@ -3,36 +3,36 @@ name: Publish to NPM
 on:
   push:
     tags:
-      - "v*.*.*"  # Example: v1.0.0
+      - "v*.*.*"
 
 jobs:
   publish:
-    name: Publish Package
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://registry.npmjs.org/"
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run Lint Check
+      - name: Lint
         run: npm run lint:check
 
-      - name: Run TypeScript Check
+      - name: Type Check
         run: npm run type-check
 
-      - name: Build Package
+      - name: Build
         run: npm run build
+
+      - name: Authenticate with NPM
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to NPM
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
