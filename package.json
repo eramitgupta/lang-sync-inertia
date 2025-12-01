@@ -23,9 +23,16 @@
         "vue": "^3.0.0"
     },
     "devDependencies": {
+        "@inertiajs/core": "^2.2.19",
+        "@inertiajs/react": "^2.2.19",
+        "@inertiajs/vue3": "^2.2.19",
         "@rollup/plugin-commonjs": "^24.1.0",
         "@rollup/plugin-node-resolve": "^15.2.1",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
         "prettier": "^3.7.3",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
         "release-it": "^19.0.6",
         "rollup": "^3.0.0",
         "rollup-plugin-typescript2": "^0.32.1",
