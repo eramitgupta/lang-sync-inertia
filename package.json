@@ -52,5 +52,15 @@
         "typescript": "^5.9.3",
         "prettier": "^3.7.4",
         "release-it": "^19.0.6"
+    },
+    "release-it": {
+        "git": {
+            "requireCleanWorkingDir": true
+        },
+        "github": {
+            "release": true,
+            "host": "github.com",
+            "repo": "eramitgupta/lang-sync-inertia"
+        }
     }
 }
