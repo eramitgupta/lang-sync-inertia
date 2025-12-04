@@ -1,8 +1,8 @@
-# 🌐 **erag-lang-sync-inertia**
+# 🌐 **@erag/lang-sync-inertia**
 
 ### **Unified Translation Helper for Vue & React (Inertia.js + Laravel)**
 
-`erag-lang-sync-inertia` is a lightweight multilingual translation helper for
+`@erag/lang-sync-inertia` is a lightweight multilingual translation helper for
 **Inertia.js (Vue 3 / React)** applications.
 
 It works as a frontend companion for the Laravel backend package:
@@ -22,7 +22,7 @@ through:
 
 ---
 
-# 🔗 **Required Laravel Package (Backend Integration)**
+## 🔗 **Required Laravel Package (Backend Integration)**
 
 You must install the Laravel backend package to send translations:
 
@@ -40,20 +40,13 @@ Install:
 composer require erag/laravel-lang-sync-inertia
 ```
 
-This backend package:
-
-✔ Loads language files from `resources/lang/{locale}`
-✔ Converts them to JSON
-✔ Injects them into Inertia shared props
-✔ Provides `syncLangFiles()` helper
-
 ---
 
 # ✨ Features
 
 * 🚀 Works with **Vue 3** and **React 18/19**
-* 🔄 Supports placeholder replacement → `{name}`
-* 📦 Only ~1 KB gzipped → very lightweight
+* 🔄 Placeholder replacement → `{name}`
+* 📦 Super lightweight (~1 KB gzipped)
 * 🎯 Clean API → `trans()` & `__()`
 * 🧵 TypeScript support
 * 🌍 Uses Laravel translation system
@@ -64,26 +57,26 @@ This backend package:
 # 📦 Installation
 
 ```bash
-npm install erag-lang-sync-inertia
+npm install @erag/lang-sync-inertia
 ```
 
 ---
 
 # 🧩 Vue 3 Usage (Inertia.js + Vite)
 
-### ⭐ Recommended Import
+### ⭐ Import
 
 ```ts
-import { vueLang } from 'erag-lang-sync-inertia'
+import { vueLang } from '@erag/lang-sync-inertia'
 
 const { trans, __ } = vueLang()
 ```
 
-### ⭐ Example Component
+### Component Example
 
 ```vue
 <script setup lang="ts">
-import { vueLang } from 'erag-lang-sync-inertia'
+import { vueLang } from '@erag/lang-sync-inertia'
 
 const { trans, __ } = vueLang()
 </script>
@@ -98,18 +91,16 @@ const { trans, __ } = vueLang()
 
 # 🧩 React Usage (Inertia.js + React)
 
-### ⭐ Recommended Import
+### ⭐ Import
 
 ```ts
-import { reactLang } from 'erag-lang-sync-inertia'
-
-const { trans, __ } = reactLang()
+import { reactLang } from '@erag/lang-sync-inertia'
 ```
 
-### ⭐ Example Component
+### Component Example
 
 ```tsx
-import { reactLang } from 'erag-lang-sync-inertia'
+import { reactLang } from '@erag/lang-sync-inertia'
 
 export default function Login() {
     const { trans, __ } = reactLang()
@@ -129,7 +120,7 @@ export default function Login() {
 
 ### `__(key: string, replaces?: string | object)`
 
-Simple translation lookup:
+Simple translation usage:
 
 ```ts
 __('auth.login')
@@ -144,40 +135,24 @@ trans('auth.welcome', { name: 'Amit' })
 // "Welcome, Amit!"
 ```
 
-### Placeholder Example (Laravel)
-
-```
-"welcome" => "Welcome, {name}!"
-```
-
 ---
 
-# 🗂 Laravel Usage Example (Backend)
+# 🗂 Laravel Usage Example
 
 ### Controller
 
 ```php
 syncLangFiles(['auth', 'dashboard']);
-
 return Inertia::render('Dashboard');
 ```
 
-### Language File
-
-`resources/lang/en/auth.php`:
+### Language File: `resources/lang/en/auth.php`
 
 ```php
 return [
     'greeting' => 'Hello!',
     'welcome'  => 'Welcome, {name}!',
 ];
-```
-
-Now in Inertia:
-
-```
-page.props.lang.auth.greeting
-page.props.lang.auth.welcome
 ```
 
 ---
@@ -192,40 +167,20 @@ type LangObject = Record<string, LangValue>
 
 ---
 
-# 📁 Internal Structure
+# 📁 Structure
 
 ```
 src/
 ├─ vue/
-│   ├─ useLang.ts
-│   └─ index.ts  (exports vueLang)
 ├─ react/
-│   ├─ useLang.ts
-│   └─ index.ts  (exports reactLang)
 ├─ types/
-│   ├─ lang.ts
-│   └─ page.ts
 └─ index.ts
 ```
-
----
-
-# 🛠 Build Tools
-
-* Rollup
-* TypeScript
-* rollup-plugin-typescript2
-* @rollup/plugin-node-resolve
-* @rollup/plugin-commonjs
-
----
-
-# 🤝 Contributing
-
-PRs and issues welcome!
 
 ---
 
 # 📄 License
 
 MIT © Amit Gupta
+
+---
