@@ -1,66 +1,16 @@
 {
     "name": "erag-lang-sync-inertia",
-    "version": "1.5.4",
-    "description": "Unified Vue and React language sync helpers for Laravel Inertia",
-    "type": "module",
-    "sideEffects": false,
+    "version": "1.0.2",
+    "description": "Unified Language Sync for Inertia.js (Vue & React)",
     "main": "dist/index.js",
-    "module": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/eramitgupta/lang-sync-inertia.git"
-    },
-    "exports": {
-        ".": {
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        },
-        "./vue": {
-            "import": "./dist/vue/index.js",
-            "types": "./dist/vue/index.d.ts"
-        },
-        "./react": {
-            "import": "./dist/react/index.js",
-            "types": "./dist/react/index.d.ts"
-        }
+    "type": "module",
+    "scripts": {
+        "build": "tsup src/index.ts --dts"
     },
     "files": [
         "dist"
     ],
-    "scripts": {
-        "build": "rollup -c rollup.config.cjs",
-        "prepare": "npm run build",
-        "lint": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
-        "lint:check": "prettier --check \"src/**/*.{ts,tsx,js,json,md}\"",
-        "type-check": "tsc --noEmit",
-        "release": "release-it",
-        "upgrade": "npx npm-check-updates -u"
-    },
-    "peerDependencies": {
-        "@inertiajs/core": "^2.0.0",
-        "@inertiajs/react": "^2.0.0",
-        "@inertiajs/vue3": "^2.0.0",
-        "react": "^18.0.0 || ^19.0.0",
-        "vue": "^3.0.0"
-    },
-    "devDependencies": {
-        "@rollup/plugin-commonjs": "^29.0.0",
-        "@rollup/plugin-node-resolve": "^16.0.3",
-        "rollup": "^4.53.3",
-        "rollup-plugin-typescript2": "^0.36.0",
-        "typescript": "^5.9.3",
-        "prettier": "^3.7.4",
-        "release-it": "^19.0.6"
-    },
-    "release-it": {
-        "git": {
-            "requireCleanWorkingDir": true
-        },
-        "github": {
-            "release": true,
-            "host": "github.com",
-            "repo": "eramitgupta/lang-sync-inertia"
-        }
-    }
+    "keywords": [],
+    "author": "Amit Gupta",
+    "license": "MIT"
 }
