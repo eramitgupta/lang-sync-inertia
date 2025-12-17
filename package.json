@@ -1,6 +1,6 @@
 {
     "name": "@erag/lang-sync-inertia",
-    "version": "1.4.11",
+    "version": "1.4.12",
     "description": "Unified Vue and React language sync helpers for Laravel Inertia",
     "type": "module",
     "sideEffects": false,
