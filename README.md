@@ -17,9 +17,21 @@ page.props.lang
 
 through:
 
-* `vueLang()` — for Vue 3
-* `reactLang()` — for React
+## New API
 
+Use `lang()` as the preferred API.
+
+### Vue
+import { lang } from '@erag/lang-sync-inertia/vue'
+
+### React
+import { lang } from '@erag/lang-sync-inertia/react'
+
+## Backward compatibility
+
+The old APIs still work:
+- `vueLang()`
+- `reactLang()`
 ---
 
 ## 🔗 **Required Laravel Package (Backend Integration)**
@@ -65,7 +77,12 @@ npm install @erag/lang-sync-inertia
 # 🧩 Vue 3 Usage (Inertia.js + Vite)
 
 ### ⭐ Import
+```ts
+import { lang } from '@erag/lang-sync-inertia/vue'
 
+const { trans, __ } = lang()
+```
+or
 ```ts
 import { vueLang } from '@erag/lang-sync-inertia'
 
@@ -76,9 +93,9 @@ const { trans, __ } = vueLang()
 
 ```vue
 <script setup lang="ts">
-import { vueLang } from '@erag/lang-sync-inertia'
+import { lang } from '@erag/lang-sync-inertia/vue'
 
-const { trans, __ } = vueLang()
+const { trans, __ } = lang()
 </script>
 
 <template>
@@ -92,6 +109,13 @@ const { trans, __ } = vueLang()
 # 🧩 React Usage (Inertia.js + React)
 
 ### ⭐ Import
+```ts
+import { lang } from '@erag/lang-sync-inertia/react'
+
+const { trans, __ } = lang()
+```
+
+or
 
 ```ts
 import { reactLang } from '@erag/lang-sync-inertia'
@@ -100,10 +124,10 @@ import { reactLang } from '@erag/lang-sync-inertia'
 ### Component Example
 
 ```tsx
-import { reactLang } from '@erag/lang-sync-inertia'
+import { lang } from '@erag/lang-sync-inertia/react'
 
 export default function Login() {
-    const { trans, __ } = reactLang()
+    const { trans, __ } = lang()
 
     return (
         <div>

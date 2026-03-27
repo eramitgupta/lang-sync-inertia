@@ -1,7 +1,9 @@
 import { useLang } from './useLang'
 
-export function reactLang() {
+export function lang() {
   return useLang()
 }
+
+export const reactLang = lang
 
 export { useLang } from './useLang'
