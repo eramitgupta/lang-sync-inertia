@@ -2,6 +2,14 @@
     "name": "@erag/lang-sync-inertia",
     "version": "1.4.12",
     "description": "Unified Vue and React language sync helpers for Laravel Inertia",
+    "homepage": "https://github.com/eramitgupta/lang-sync-inertia",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eramitgupta/lang-sync-inertia.git"
+    },
+    "bugs": {
+        "url": "https://github.com/eramitgupta/lang-sync-inertia/issues"
+    },
     "type": "module",
     "sideEffects": false,
     "main": "dist/index.js",
@@ -34,9 +42,9 @@
         "upgrade": "npx npm-check-updates -u"
     },
     "peerDependencies": {
-        "@inertiajs/core": "^2.0.0",
-        "@inertiajs/react": "^2.0.0",
-        "@inertiajs/vue3": "^2.0.0",
+        "@inertiajs/core": "^2.0.0 || ^3.0.0",
+        "@inertiajs/react": "^2.0.0 || ^3.0.0",
+        "@inertiajs/vue3": "^2.0.0 || ^3.0.0",
         "react": "^18.0.0 || ^19.0.0",
         "vue": "^3.0.0"
     },
