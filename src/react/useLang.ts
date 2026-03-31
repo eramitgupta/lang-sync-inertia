@@ -31,6 +31,11 @@ export function useLang() {
   }
 
   function getValueFromKey(key: string): string | undefined {
+    // Direct lookup first — handles keys containing literal dots (e.g. sentences)
+    if (typeof lang === 'object' && lang !== null && typeof lang[key] === 'string')
+      return lang[key] as string
+
+    // Fall back to dot-notation traversal for nested keys
     const segments = key.split('.')
     let current: LangValue | undefined = lang
 

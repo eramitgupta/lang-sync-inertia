@@ -32,8 +32,15 @@ export function useLang() {
   }
 
   function getValueFromKey(key: string): string | undefined {
+    const langObj = page.props.lang
+
+    // Direct lookup first — handles keys containing literal dots (e.g. sentences)
+    if (typeof langObj === 'object' && langObj !== null && typeof langObj[key] === 'string')
+      return langObj[key] as string
+
+    // Fall back to dot-notation traversal for nested keys
     const segments = key.split('.')
-    let current: any = page.props.lang
+    let current: any = langObj
 
     for (const segment of segments) {
       if (typeof current !== 'object' || current === null) return undefined
