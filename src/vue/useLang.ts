@@ -35,8 +35,9 @@ export function useLang() {
     const langObj = page.props.lang
 
     // Direct lookup first — handles keys containing literal dots (e.g. sentences)
-    if (typeof langObj === 'object' && langObj !== null && typeof langObj[key] === 'string')
+    if (typeof langObj === 'object' && langObj !== null && typeof langObj[key] === 'string') {
       return langObj[key] as string
+    }
 
     // Fall back to dot-notation traversal for nested keys
     const segments = key.split('.')
