@@ -12,6 +12,7 @@ A lightweight (~1 KB gzipped) frontend companion to [`erag/laravel-lang-sync-ine
 - Clean API: `trans()` and `__()`
 - Placeholder replacement via `{name}` syntax
 - Nested key support: `auth.errors.required`
+- Sentence key support: `'Laravel has an incredibly rich ecosystem.'`
 - Full **TypeScript** support
 - Super lightweight (~1 KB gzipped)
 - Built on Laravel's translation system via `page.props.lang`
@@ -105,6 +106,14 @@ __('auth.login')
 
 __('auth.welcome', { name: 'Amit' })
 // → "Welcome, Amit!"
+```
+
+Keys containing literal dots — such as English sentences used as translation keys — are supported. A direct lookup is attempted before dot-notation traversal, so they resolve correctly:
+
+```ts
+// lang/en/messages.php → ['Please proceed with caution, this cannot be undone.' => '...']
+__('Please proceed with caution, this cannot be undone.')
+// → "..."
 ```
 
 ### `trans(key, replaces)`
