@@ -12,7 +12,7 @@ A lightweight (~1 KB gzipped) frontend companion to [`erag/laravel-lang-sync-ine
 - Clean API: `trans()` and `__()`
 - Placeholder replacement via `{name}` syntax
 - Nested key support: `auth.errors.required`
-- Sentence key support: `'Laravel has an incredibly rich ecosystem.'`
+- Missing key fallback: `__('I love programming.')` returns `I love programming.`
 - Full **TypeScript** support
 - Super lightweight (~1 KB gzipped)
 - Built on Laravel's translation system via `page.props.lang`
@@ -106,6 +106,43 @@ __('auth.login')
 
 __('auth.welcome', { name: 'Amit' })
 // → "Welcome, Amit!"
+
+__('messages.greeting.welcome_with_message', {
+  name: 'Amit',
+  message: 'Good to see you'
+})
+// lang/en/messages.php → ['greeting' => ['welcome_with_message' => 'Welcome, :name. :message']]
+// → "Welcome, Amit. Good to see you"
+```
+
+If no matching translation key is found, the original key is returned unchanged:
+
+```ts
+__('I love programming.')
+// → "I love programming."
+```
+
+Laravel key example:
+
+```php
+return [
+    'greeting' => [
+        'name' => 'Welcome, :name',
+        'welcome_with_message' => 'Welcome, :name. :message',
+        'legacy_welcome' => 'Welcome, {name}',
+    ],
+];
+```
+
+```ts
+__('messages.greeting.name', { name: 'dayle' })
+// → "Welcome, dayle"
+
+trans('messages.greeting.welcome_with_message', {
+  name: 'dayle',
+  message: 'Good to see you'
+})
+// → "Welcome, dayle. Good to see you"
 ```
 
 Keys containing literal dots — such as English sentences used as translation keys — are supported. A direct lookup is attempted before dot-notation traversal, so they resolve correctly:
@@ -152,7 +189,7 @@ The package reads from `page.props.lang` automatically — no extra setup needed
 ## TypeScript Types
 
 ```ts
-type Replaces  = Record<string, string | number>
+type Replaces = Record<string, string | number>
 type LangValue = string | { [key: string]: string | LangValue }
 type LangObject = Record<string, LangValue>
 ```
