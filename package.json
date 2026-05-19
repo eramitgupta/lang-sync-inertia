@@ -12,6 +12,9 @@
     },
     "type": "module",
     "sideEffects": false,
+    "engines": {
+        "node": ">=22.12.0"
+    },
     "main": "dist/index.js",
     "module": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -33,7 +36,7 @@
         "dist"
     ],
     "scripts": {
-        "build": "vite build --config vite.config.ts && tsc -p tsconfig.json --emitDeclarationOnly",
+        "build": "vite build --config vite.config.mjs && tsc -p tsconfig.json --emitDeclarationOnly",
         "prepare": "npm run build",
         "lint": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
         "lint:check": "prettier --check \"src/**/*.{ts,tsx,js,json,md}\"",
