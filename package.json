@@ -33,7 +33,7 @@
         "dist"
     ],
     "scripts": {
-        "build": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+        "build": "vite build --config vite.config.ts && tsc -p tsconfig.json --emitDeclarationOnly",
         "prepare": "npm run build",
         "lint": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
         "lint:check": "prettier --check \"src/**/*.{ts,tsx,js,json,md}\"",
