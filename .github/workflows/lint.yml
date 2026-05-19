@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Prettier Check
+      - name: Run Lint Check
         run: npm run lint:check
 
       - name: Run TypeScript Check

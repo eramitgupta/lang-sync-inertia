@@ -9,8 +9,9 @@
 
     /* Module settings */
     "module": "ESNext",
-    "target": "ESNext",
+    "target": "ES2018",
     "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
 
     /* Code quality */
     "strict": true,

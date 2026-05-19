@@ -1,8 +1,5 @@
-import { createRequire } from 'node:module'
 import { defineConfig } from 'vite'
-
-const require = createRequire(import.meta.url)
-const pkg = require('./package.json')
+import pkg from './package.json' with { type: 'json' }
 
 const external = Object.keys(pkg.peerDependencies ?? {})
 
@@ -14,9 +11,9 @@ export default defineConfig({
       entry: {
         index: 'src/index.ts',
         'vue/index': 'src/vue/index.ts',
-        'react/index': 'src/react/index.ts',
+        'react/index': 'src/react/index.ts'
       },
-      formats: ['es'],
+      formats: ['es']
     },
     rollupOptions: {
       external,
@@ -24,9 +21,9 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: 'src',
         entryFileNames: '[name].js',
-        exports: 'named',
-      },
+        exports: 'named'
+      }
     },
-    sourcemap: true,
-  },
+    sourcemap: true
+  }
 })
