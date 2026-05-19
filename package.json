@@ -33,7 +33,7 @@
         "dist"
     ],
     "scripts": {
-        "build": "rollup -c rollup.config.cjs",
+        "build": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
         "prepare": "npm run build",
         "lint": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
         "lint:check": "prettier --check \"src/**/*.{ts,tsx,js,json,md}\"",
@@ -49,13 +49,10 @@
         "vue": "^3.0.0"
     },
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^29.0.0",
-        "@rollup/plugin-node-resolve": "^16.0.3",
-        "rollup": "^4.53.5",
-        "rollup-plugin-typescript2": "^0.36.0",
-        "typescript": "^5.9.3",
-        "prettier": "^3.7.4",
-        "release-it": "^19.1.0"
+        "prettier": "^3.8.3",
+        "release-it": "^20.0.1",
+        "typescript": "^6.0.3",
+        "vite": "^8.0.13"
     },
     "release-it": {
         "git": {

@@ -5,11 +5,12 @@
     "declarationDir": "dist",
     "emitDeclarationOnly": false,
     "outDir": "dist",
+    "rootDir": "src",
 
     /* Module settings */
     "module": "ESNext",
     "target": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
 
     /* Code quality */
     "strict": true,
