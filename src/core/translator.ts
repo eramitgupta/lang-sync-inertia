@@ -9,7 +9,7 @@ export interface LangHelpers {
 
 const placeholderPattern = /[{]([A-Za-z0-9_]+)[}]|:([A-Za-z0-9_]+)/g
 const exactPluralPattern = /^\s*[{](-?\d+(?:\.\d+)?)[}]/
-const intervalPluralPattern = /^\s*([\[\]])\s*(-?\d+(?:\.\d+)?|\*)\s*,\s*(-?\d+(?:\.\d+)?|\*)\s*([\[\]])/
+const intervalPluralPattern = /^\s*([[\]])\s*(-?\d+(?:\.\d+)?|\*)\s*,\s*(-?\d+(?:\.\d+)?|\*)\s*([[\]])/
 const exactPluralPrefixPattern = /^\s*[{]-?\d+(?:\.\d+)?[}]\s*/
 const intervalPluralPrefixPattern =
   /^\s*[[\]]\s*(?:-?\d+(?:\.\d+)?|\*)\s*,\s*(?:-?\d+(?:\.\d+)?|\*)\s*[[\]]\s*/

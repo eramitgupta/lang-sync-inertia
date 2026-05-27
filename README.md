@@ -178,7 +178,7 @@ return Inertia::render('Dashboard');
 ```php
 return [
     'greeting' => 'Hello!',
-    'welcome'  => 'Welcome, {name}!',
+    'welcome'  => 'Welcome, :name',
 ];
 ```
 
