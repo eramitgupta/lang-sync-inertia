@@ -1,7 +1,7 @@
 {
   "name": "@erag/lang-sync-inertia",
   "version": "2.0.1",
-  "description": "Unified Vue and React language sync helpers for Laravel Inertia",
+  "description": "Unified Vue, React, and Svelte language sync helpers for Laravel Inertia",
   "homepage": "https://github.com/eramitgupta/lang-sync-inertia",
   "repository": {
     "type": "git",
@@ -30,6 +30,10 @@
     "./react": {
       "import": "./dist/react/index.js",
       "types": "./dist/react/index.d.ts"
+    },
+    "./svelte": {
+      "import": "./dist/svelte/index.js",
+      "types": "./dist/svelte/index.d.ts"
     }
   },
   "files": [
@@ -49,8 +53,10 @@
   "peerDependencies": {
     "@inertiajs/core": "^2.0.0 || ^3.0.0",
     "@inertiajs/react": "^2.0.0 || ^3.0.0",
+    "@inertiajs/svelte": "^2.0.0 || ^3.0.0",
     "@inertiajs/vue3": "^2.0.0 || ^3.0.0",
     "react": "^18.0.0 || ^19.0.0",
+    "svelte": "^4.0.0 || ^5.0.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
