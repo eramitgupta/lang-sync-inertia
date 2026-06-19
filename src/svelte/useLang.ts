@@ -1,7 +1,9 @@
-import { page } from '@inertiajs/svelte'
+import { usePage } from '@inertiajs/svelte'
 import { createLang } from '../core/translator'
 import type { PageProps } from '../types/page'
 
 export function useLang() {
-  return createLang(() => (page.props as Partial<PageProps>).lang)
+  const page = usePage<PageProps>()
+
+  return createLang(() => page.props.lang)
 }

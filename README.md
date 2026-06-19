@@ -107,7 +107,7 @@ const { trans, __ } = lang()
 **Component example:**
 
 ```svelte
-<script lang="ts">
+<script module lang="ts">
 import { lang } from '@erag/lang-sync-inertia/svelte'
 
 const { trans, __ } = lang()
