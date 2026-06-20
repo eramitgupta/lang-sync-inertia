@@ -1,6 +1,6 @@
 # @erag/lang-sync-inertia
 
-**Unified translation helper for Vue 3 & React with Inertia.js + Laravel.**
+**Unified translation helper for Vue 3, React & Svelte with Inertia.js + Laravel.**
 
 A lightweight (~1 KB gzipped) frontend companion to [`erag/laravel-lang-sync-inertia`](https://packagist.org/packages/erag/laravel-lang-sync-inertia) that exposes Laravel's translation system directly inside your Inertia components via a clean, consistent API.
 
@@ -8,7 +8,7 @@ A lightweight (~1 KB gzipped) frontend companion to [`erag/laravel-lang-sync-ine
 
 ## Features
 
-- Works with **Vue 3** and **React 18/19**
+- Works with **Vue 3**, **React 18/19**, and **Svelte 5**
 - Clean API: `trans()` and `__()`
 - Placeholder replacement via `{name}` syntax
 - Nested key support: `auth.errors.required`
@@ -90,6 +90,31 @@ export default function Login() {
     </div>
   )
 }
+```
+
+---
+
+### Svelte
+
+Requires `@inertiajs/svelte` v3 (Svelte 5).
+
+```ts
+import { lang } from '@erag/lang-sync-inertia/svelte'
+
+const { trans, __ } = lang()
+```
+
+**Component example:**
+
+```svelte
+<script module lang="ts">
+import { lang } from '@erag/lang-sync-inertia/svelte'
+
+const { trans, __ } = lang()
+</script>
+
+<h1>{__('auth.greeting')}</h1>
+<p>{trans('auth.welcome', { name: 'Amit' })}</p>
 ```
 
 ---
@@ -208,9 +233,13 @@ const { trans, __ } = vueLang()
 // React
 import { reactLang } from '@erag/lang-sync-inertia'
 const { trans, __ } = reactLang()
+
+// Svelte
+import { svelteLang } from '@erag/lang-sync-inertia'
+const { trans, __ } = svelteLang()
 ```
 
-The `lang()` import from the framework-specific path (`/vue` or `/react`) is now the recommended style.
+The `lang()` import from the framework-specific path (`/vue`, `/react`, or `/svelte`) is now the recommended style.
 
 ---
 
@@ -220,6 +249,7 @@ The `lang()` import from the framework-specific path (`/vue` or `/react`) is now
 src/
 ├── vue/
 ├── react/
+├── svelte/
 ├── types/
 └── index.ts
 ```
