@@ -1,6 +1,6 @@
 {
   "name": "@erag/lang-sync-inertia",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Unified Vue, React, and Svelte language sync helpers for Laravel Inertia",
   "homepage": "https://github.com/eramitgupta/lang-sync-inertia",
   "repository": {
