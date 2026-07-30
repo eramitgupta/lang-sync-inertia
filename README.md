@@ -1,24 +1,24 @@
 # @erag/lang-sync-inertia
 
-**Unified translation helper for Vue 3, React & Svelte with Inertia.js + Laravel.**
+**Sync Laravel translations with Inertia.js for Vue 3, React, and Svelte.**
 
-A lightweight (~1 KB gzipped) frontend companion to [`erag/laravel-lang-sync-inertia`](https://packagist.org/packages/erag/laravel-lang-sync-inertia) that exposes Laravel's translation system directly inside your Inertia components via a clean, consistent API.
+A lightweight frontend companion to [`eramitgupta/laravel-lang-sync-inertia`](https://github.com/eramitgupta/laravel-lang-sync-inertia). It reads translations shared through Inertia's `page.props.lang` and provides consistent, type-safe helpers for lookups, nested keys, placeholders, pluralization, and locale-aware updates.
 
 ---
 
 ## Features
 
-- Works with **Vue 3**, **React 18/19**, and **Svelte 5**
-- Clean API: `trans()`, `__()`, `transChoice()`, and `trans_choice()`
-- Laravel-style placeholder replacement via `:name` syntax
-- Legacy placeholder replacement via `{name}` syntax
-- Pluralization support with Laravel-style exact and interval choices
-- Nested key support: `auth.errors.required`
-- Nested language directories shared from Laravel with dot notation, e.g. `syncLangFiles('admin.users')` → `__('admin.users.name')`
-- Missing key fallback: `__('I love programming.')` returns `I love programming.`
-- Full **TypeScript** support
-- Super lightweight (~1 KB gzipped)
-- Built on Laravel's translation system via `page.props.lang`
+- 🔄 **Laravel sync** with `syncLangFiles()` to share selected language files through Inertia
+- 🧩 **Vue 3, React 18/19, and Svelte 5** helpers from one package root
+- 🌍 **Locale-aware loading** from Laravel's active `lang/{locale}` directory
+- 📁 **Single, multiple, and nested files** with dot notation such as `admin.auth`
+- ⚡ **Shared translations** available through Inertia's reactive `page.props.lang`
+- 🛠️ **Translation helpers**: `__()`, `trans()`, `transChoice()`, and `trans_choice()`
+- 📝 **Laravel placeholders** with both `:name` and legacy `{name}` syntax
+- 🔢 **Pluralization** with exact values and Laravel intervals such as `{0}`, `{1}`, and `[2,*]`
+- ↩️ **Direct string keys** with fallback to the original key when a translation is missing
+- 📦 **JSON export** from PHP language files for frontend-ready static translations
+- ✅ **TypeScript support** with typed helpers and a lightweight runtime
 
 ---
 
@@ -30,8 +30,9 @@ This package requires the Laravel backend package to share translations with the
 composer require erag/laravel-lang-sync-inertia
 ```
 
-- Packagist: [erag/laravel-lang-sync-inertia](https://packagist.org/packages/erag/laravel-lang-sync-inertia)
-- GitHub: [eramitgupta/laravel-lang-sync-inertia](https://github.com/eramitgupta/laravel-lang-sync-inertia)
+- Backend GitHub: [eramitgupta/laravel-lang-sync-inertia](https://github.com/eramitgupta/laravel-lang-sync-inertia)
+- Frontend GitHub: [eramitgupta/lang-sync-inertia](https://github.com/eramitgupta/lang-sync-inertia)
+- Documentation: [Laravel Lang Sync Inertia](https://eramitgupta.github.io/laravel-lang-sync-inertia/)
 
 ---
 
@@ -48,18 +49,18 @@ npm install @erag/lang-sync-inertia
 ### Vue 3
 
 ```ts
-import { lang } from '@erag/lang-sync-inertia/vue'
+import { vueLang } from '@erag/lang-sync-inertia'
 
-const { trans, __, transChoice } = lang()
+const { trans, __, transChoice } = vueLang()
 ```
 
 **Component example:**
 
 ```vue
 <script setup lang="ts">
-import { lang } from '@erag/lang-sync-inertia/vue'
+import { vueLang } from '@erag/lang-sync-inertia'
 
-const { trans, __, transChoice } = lang()
+const { trans, __, transChoice } = vueLang()
 </script>
 
 <template>
@@ -74,18 +75,18 @@ const { trans, __, transChoice } = lang()
 ### React
 
 ```ts
-import { lang } from '@erag/lang-sync-inertia/react'
+import { reactLang } from '@erag/lang-sync-inertia'
 
-const { trans, __, transChoice } = lang()
+const { trans, __, transChoice } = reactLang()
 ```
 
 **Component example:**
 
 ```tsx
-import { lang } from '@erag/lang-sync-inertia/react'
+import { reactLang } from '@erag/lang-sync-inertia'
 
 export default function Login() {
-  const { trans, __, transChoice } = lang()
+  const { trans, __, transChoice } = reactLang()
 
   return (
     <div>
@@ -104,18 +105,18 @@ export default function Login() {
 Requires `@inertiajs/svelte` v3 (Svelte 5).
 
 ```ts
-import { lang } from '@erag/lang-sync-inertia/svelte'
+import { svelteLang } from '@erag/lang-sync-inertia'
 
-const { trans, __, transChoice } = lang()
+const { trans, __, transChoice } = svelteLang()
 ```
 
 **Component example:**
 
 ```svelte
 <script module lang="ts">
-import { lang } from '@erag/lang-sync-inertia/svelte'
+import { svelteLang } from '@erag/lang-sync-inertia'
 
-const { trans, __, transChoice } = lang()
+const { trans, __, transChoice } = svelteLang()
 </script>
 
 <h1>{__('auth.greeting')}</h1>
@@ -269,9 +270,9 @@ type LangObject = Record<string, LangValue>
 
 ---
 
-## Backward Compatibility
+## API Entry Points
 
-The legacy APIs still work and are not deprecated:
+Use the framework-specific helper from the package root:
 
 ```ts
 // Vue
@@ -287,7 +288,7 @@ import { svelteLang } from '@erag/lang-sync-inertia'
 const { trans, __ } = svelteLang()
 ```
 
-The `lang()` import from the framework-specific path (`/vue`, `/react`, or `/svelte`) is now the recommended style.
+The legacy `lang()` imports from the framework-specific paths (`/vue`, `/react`, or `/svelte`) remain supported for backward compatibility.
 
 ---
 
@@ -301,6 +302,10 @@ src/
 ├── types/
 └── index.ts
 ```
+
+---
+
+[Code of Conduct](CODE_OF_CONDUCT.md) · [Contributing](CONTRIBUTING.md) · [Security Policy](SECURITY.md)
 
 ---
 
