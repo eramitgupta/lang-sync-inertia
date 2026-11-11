@@ -8,8 +8,7 @@ export type { LangHelpers } from './types'
 
 export function createLang(getLang: () => LangObject | undefined): LangHelpers {
   function trans(key: string, replaces: Replaces | string = {}): string {
-    const raw = getValueFromKey(getLang(), key)
-    if (typeof raw !== 'string') return key
+    const raw = getValueFromKey(getLang(), key) ?? key
 
     if (typeof replaces === 'string') {
       return `${raw} ${replaces}`
@@ -23,8 +22,7 @@ export function createLang(getLang: () => LangObject | undefined): LangHelpers {
   }
 
   function transChoice(key: string, count: number, replaces: Replaces = {}): string {
-    const raw = getValueFromKey(getLang(), key)
-    if (typeof raw !== 'string') return key
+    const raw = getValueFromKey(getLang(), key) ?? key
 
     return replacePlaceholders(choosePluralLine(raw, count), {
       ...replaces,
