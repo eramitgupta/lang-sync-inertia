@@ -95,6 +95,9 @@
     "git": {
       "requireCleanWorkingDir": true
     },
+    "npm": {
+      "publish": false
+    },
     "github": {
       "release": true,
       "host": "github.com",
