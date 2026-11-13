@@ -1,6 +1,6 @@
 {
   "name": "@erag/lang-sync-inertia",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Laravel Inertia.js translation and localization package for Vue 3, React, and Svelte with reactive language switching, translation helpers, nested keys, placeholders, pluralization, and TypeScript support",
   "keywords": [
     "laravel",
